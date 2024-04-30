@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn1">event</button>
+    <div id="eventclick"></div>
+    <form
+      name="myForm"
+      action="/action_page.php"
+      onsubmit="return validateForm()"
+      method="post"
+      required
+    >
+      Name: <input type="text" name="fname" />
+      <input type="submit" value="Submit" />
+    </form>
+    <div id="product"></div>
+
+    <script>
+      // 1. Add an event listener to a button. When we click on it it should display current date and time.
+      const clickevent = () => {
+        document.getElementById("eventclick").innerHTML = "clicked";
+      };
+      document.getElementById("btn1").addEventListener("click", clickevent);
+      //   2. Show the javascript validation. When you click submit, the text box doesn't need to be empty.
+      function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "" || x == null) {
+          alert("Name must be filled out");
+          return false;
+        }
+      }
+      //   3. How console.log() can be used for Debugging.
+      let a = "Hello, world!";
+      console.log(a);
+      //   4. Write functions to set a cookie, get a cookie and check a cookie in a single program.
+      document.cookie = "username=Debra White; path=/";
+      document.cookie = "userId=wjgye264s; path=/";
+      let cookies = document.cookie;
+      console.log(cookies);
+      //   5. Create a JSON object and access it using dot notation.
+      let product = {
+        "nameofproduct": "mobile",
+        "cost": "17999",
+        "warranty": "1 year ",
+      };
+    
+      document.getElementById("product").innerHTML=product.nameofproduct
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="original">original array :</div>
+    <button onclick="sortarr()">sort</button>
+
+    <div id="display">sorted array : &nbsp;</div>
+    
+    
+    <div id="pro"></div>
+    <button id="btn1">event</button>
+    <form
+      name="myForm"
+      action="/action_page.php"
+      onsubmit="return validateForm()"
+      method="post"
+      required
+    >
+      Name: <input type="text" name="fname" />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      //  1. javascript
+      //       6.Use strict mode in your program and understand why variable not declared causes
+      //   error.
+      "use strict";
+      // 1.singleline comment and multiline comment
+      // singleline comment
+
+      /* multiline comment 
+        let a=1
+        let b=2
+        let c=3*/
+      //       2.Create an array consisting of fruits names and when we click on a button sort it in
+      //         descending order.
+      let arr = ["apple", "mango", "orange", "pineapple", "banana"];
+      document.getElementById("original").innerHTML += arr;
+      let sortarr = () => {
+        console.log("clicked");
+        let arr1=arr.sort();
+        document.getElementById("display").innerHTML += arr1.reverse()
+      };
+      // 3.Write a program with FOR/IN loop.
+      const obj = {
+        firstname: "siva",
+        lastname: "sekar",
+      };
+
+      for (let i in obj) {
+        document.write(i, ":", obj[i], "&nbsp&nbsp&nbsp;");
+      }
+      //     4. Create an object "person" with properties firstname and lastname. Display these
+      // properties using 2 different ways of accessing.
+      document.write(obj.firstname + "&nbsp");
+      document.write(obj["lastname"] + "&nbsp&nbsp&nbsp&nbsp");
+      // 5.Write a program with variable hoisting(initialization first then declaration).
+      message = "hello all";
+      document.write("Hoisting : ", message);
+
+      var message;
+
+      
+      
+      
+
+      
+
+      
+      const clickevent = () => {
+        console.log("clicked");
+      };
+      document.getElementById("btn1").addEventListener("click", clickevent);
+
+      function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "" || x == null) {
+          alert("Name must be filled out");
+          return false;
+        }
+      }
+
+      // document.getElementById("pro").innerHTML="The nationality of my father is "+person1.nationality
+    </script>
+  </body>
+</html>

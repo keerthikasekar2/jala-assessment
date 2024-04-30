@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="hide">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur ut
+      recusandae, exercitationem minus qui asperiores magni. Magni ipsam facilis
+      atque! Molestias atque maxime commodi excepturi nihil cum. Voluptate,
+      magni earum?
+    </div>
+    <button onclick="clickhide()">hide</button>
+    <button onclick="clickshow()">show</button>
+    <div id="app"></div>
+    <div id="count"></div>
+    <button onclick="counter()">count</button>
+    <div id="setter"></div>
+    <div id="getter"></div>
+    <div id="pro"></div>
+    <script>
+        // 1. Write program using this keyword when we click on button, it should be disappear.
+        let clickhide = () =>{
+          console.log("clicked");
+          let x = document.getElementById("hide");
+          x.style.display = "none";
+        };
+        let clickshow = () => {
+          console.log("clicked");
+          let x = document.getElementById("hide");
+          x.style.display = "block";
+        };
+      //   2. Invoke a function using call() and apply(). Also Spot the difference between them.
+      const obj = {
+        firstname: "siva",
+        lastname: "sekar",
+      };
+      const obj1 = {
+          fullname: function () {
+            return this.firstname + " " + this.lastname;
+          },
+        };
+        document.getElementById("app").innerHTML = obj1.fullname.apply(obj);
+        // 3. Write a program for COUNTER. Whenever we click on a "Count" button, value should increment.
+        let count = 0;
+      document.getElementById("count").innerHTML = count;
+      let counter = () => {
+        console.log("clicked");
+
+        count = count + 1;
+        document.getElementById("count").innerHTML = count;
+      };
+    //   4.  Create a Counter with the help of getter and setter accessors.
+    let obj2 = {
+        firstName: "jaya",
+        lastName: "meenakshi",
+        language: "",
+        set lang(lang) {
+          this.language = lang;
+        },
+      };
+      obj2.lang = "en";
+
+      document.getElementById("setter").innerHTML = obj2.language;
+      let obj3 = {
+        firstName: "jaya",
+        lastName: "meenakshi",
+        get fullName() {
+          return this.firstName + " " + this.lastName;
+        },
+      };
+      document.getElementById("getter").innerHTML = obj3.fullName;
+    //   5. Add some more properties to an existing function using object prototypes.
+    function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+      }
+
+      Person.prototype.nationality = "English";
+
+      const myFather = new Person("John", "Doe", 50, "blue");
+      document.getElementById("pro").innerHTML =
+        "The nationality of my father is " + myFather.nationality;
+    </script>
+  </body>
+</html>
